@@ -1,6 +1,7 @@
 require 'pry'
 
 class Word
+  attr_reader :id 
   @@words = {}
   @@total_words = 0
 
