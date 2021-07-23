@@ -28,6 +28,9 @@ class Word
     @@total_words = 0
   end 
 
+  def self.find(id)
+    @@words.fetch(:id => id)  
+  end 
 
 
 end 

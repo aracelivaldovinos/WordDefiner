@@ -1,8 +1,12 @@
 require 'rspec'
 require 'words'
+require 'pry'
 
 
 describe '#Word' do
+before(:each) do
+  Word.clear()
+end
   describe('.all') do
     it("it will return empty array") do 
       expect(Word.all).to(eq([]))
@@ -35,6 +39,16 @@ describe '#Word' do
       word.save()
       Word.clear()
       expect(Word.all).to(eq([]))
+    end 
+  end
+
+  describe('.find') do
+    it("it will find word by id") do 
+      word = Word.new({:word => "easy", :id => 1})
+      word.save()
+      word1 = Word.new({:word => "hard", :id => 2})
+      word.save()
+      expect(Word.find(word.id)).to(eq(word))
     end 
   end
 
