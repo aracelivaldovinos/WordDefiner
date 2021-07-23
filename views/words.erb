@@ -1,0 +1,23 @@
+<h1>Lets get wordy! </h1>
+
+<% if @words.any? %>
+  <ul>
+    <% @words.each do |word| %>
+      <li><a href="/home/<%= word.id %>"><%= word.word %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>What words do you want to learn today?</p>
+<% end %>
+
+<a href="/home/new">Add words!</a>
+
+
+<form action="/home %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="word">Change word</label>
+  <input id="word" name="word" type="text">
+  <button type="submit">click</button>
+
+</form>
