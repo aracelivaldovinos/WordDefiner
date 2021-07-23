@@ -9,6 +9,12 @@ describe '#Word' do
     end 
   end 
 
-
+  describe('#save') do
+    it("it will save word in the @@word hash") do 
+      word = Word.new({:word => "easy", :id => @id})
+      word.save()
+      expect(Word.all).to(eq([word]))
+    end 
+  end 
 
 end 
