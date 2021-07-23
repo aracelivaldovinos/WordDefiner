@@ -27,4 +27,15 @@ describe '#Word' do
     end 
   end 
 
+  describe('.clear') do
+    it("it will clear words hash") do 
+      word = Word.new({:word => "easy", :id => @id})
+      word.save()
+      word1 = Word.new({:word => "easy", :id => @id})
+      word.save()
+      Word.clear()
+      expect(Word.all).to(eq([]))
+    end 
+  end
+
 end 
