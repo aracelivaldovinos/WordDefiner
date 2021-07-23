@@ -9,5 +9,9 @@ class Word
     @id = attributes.fetch(:id) || @@total_words += 1
   end 
 
+  def self.all 
+    @@words.values()
+  end 
+
 end 
 

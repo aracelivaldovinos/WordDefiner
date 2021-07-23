@@ -1,6 +1,6 @@
 require 'rspec'
 require 'definitions'
-require 'boards'
+require 'words'
 require 'pry'
 
 describe '#Definition' do
