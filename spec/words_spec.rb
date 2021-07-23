@@ -17,4 +17,14 @@ describe '#Word' do
     end 
   end 
 
+  describe('#==') do
+    it("its the same word if it has the same attributes") do 
+      word = Word.new({:word => "easy", :id => @id})
+      word.save()
+      word1 = Word.new({:word => "easy", :id => @id})
+      word.save()
+      expect(word).to(eq(word1))
+    end 
+  end 
+
 end 

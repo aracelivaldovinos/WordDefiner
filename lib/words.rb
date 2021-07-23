@@ -19,5 +19,11 @@ class Word
     @@words[:id => @id] = Word.new(:word => @word, :id => @id)
   end 
 
+  def ==(compare_word)
+    self.word == compare_word.word()
+  end 
+
+
+
 end 
 
