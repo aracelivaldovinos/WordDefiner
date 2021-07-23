@@ -38,5 +38,9 @@ class Word
     @word = word 
   end 
 
+  def delete
+    @@words.delete(@id)
+  end 
+
 end 
 

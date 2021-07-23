@@ -42,6 +42,7 @@ end
     end 
   end
 
+  ## Need to work on find and update
   describe('.find') do
     it("it will find word by id") do 
       word = Word.new({:word => "easy", :id => 1})
@@ -52,14 +53,25 @@ end
     end 
   end
 
-  describe('#name') do
-    it("it will update name by id") do 
+  describe('#update') do
+    it("it will update word by id") do 
       word = Word.new({:word => "easy", :id => 1})
       word.save()
       word.update("hard")
-      binding.pry
       expect(word.word()).to(eq("hard"))
     end 
   end
 
+  ##
+
+  describe('#delete') do
+  it("it will delete name by id") do 
+    word = Word.new({:word => "easy", :id => 1})
+    word.save()
+    word1 = Word.new({:word => "hard", :id => 2})
+    word.save()
+    word.delete()
+    expect(Word.all).to(eq([word1]))
+  end 
+end
 end 
