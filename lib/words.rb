@@ -1,7 +1,10 @@
 require 'pry'
 
 class Word
+## Still need to remove attr_id
   attr_reader :id 
+  attr_accessor :word
+
   @@words = {}
   @@total_words = 0
 
@@ -31,6 +34,9 @@ class Word
     @@words.fetch(:id => id)  
   end 
 
+  def update(word)
+    @word = word 
+  end 
 
 end 
 

@@ -52,4 +52,14 @@ end
     end 
   end
 
+  describe('#name') do
+    it("it will update name by id") do 
+      word = Word.new({:word => "easy", :id => 1})
+      word.save()
+      word.update("hard")
+      binding.pry
+      expect(word.word()).to(eq("hard"))
+    end 
+  end
+
 end 
