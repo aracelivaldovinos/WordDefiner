@@ -27,6 +27,11 @@ post('/home') do
   erb(:words)
 end 
 
+get('/home/:id') do
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
+
 
 
 
