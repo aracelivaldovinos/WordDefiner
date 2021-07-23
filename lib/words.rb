@@ -1,8 +1,6 @@
 require 'pry'
 
 class Word
-  attr_reader :id
-  attr_accessor :word
   @@words = {}
   @@total_words = 0
 
@@ -20,7 +18,7 @@ class Word
   end 
 
   def ==(compare_word)
-    self.word == compare_word.word()
+    @word
   end 
 
   def self.clear

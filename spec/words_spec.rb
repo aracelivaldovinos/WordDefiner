@@ -44,11 +44,12 @@ end
 
   describe('.find') do
     it("it will find word by id") do 
-      word = Word.new({:word => "easy", :id => 1})
+      word = Word.new({:word => "easy", :id => @id})
       word.save()
-      word1 = Word.new({:word => "hard", :id => 2})
+      word1 = Word.new({:word => "hard", :id => @id})
       word.save()
-      expect(Word.find(word.id)).to(eq(word))
+      binding.pry
+      expect(Word.find(@id)).to(eq(word))
     end 
   end
 
