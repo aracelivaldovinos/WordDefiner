@@ -74,4 +74,17 @@ end
     expect(Word.all).to(eq([word1]))
   end 
 end
+
+describe('#definitions') do
+    it("returns an word definitions") do
+      word = Word.new({:word => "easy", :id => @id})
+      word.save()
+      definition = Definition.new({:definition => "without difficulty or effort", :word_id => word.id, :id => 1})
+      definition.save()
+      definition1 = Definition.new({:definition => "free from worries or problems", :word_id => word.id, :id => 2})
+      definition1.save()
+      expect(word.definitions).to(eq([definition ,definition1]))
+    end
+  end
+
 end 
