@@ -65,7 +65,7 @@ end
   ##
 
   describe('#delete') do
-  it("it will delete name by id") do 
+  it("it will delete word by id") do 
     word = Word.new({:word => "easy", :id => 1})
     word.save()
     word1 = Word.new({:word => "hard", :id => 2})

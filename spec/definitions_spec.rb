@@ -66,7 +66,7 @@ end
   ##
 
   describe('#delete') do
-  it("it will delete name by id") do 
+  it("it will delete defintion by id") do 
     definition = Definition.new({:definition => "without difficulty or effort", :id => 1})
     definition.save()
     definition1 = Definition.new({:definition => "free from worries or problems", :id => 2})
@@ -74,6 +74,18 @@ end
     definition.delete()
     expect(Definition.all).to(eq([definition1]))
   end 
+end
+
+describe('.find_by_word') do
+  it("finds definitions for a word") do
+    word = Word.new({:word => "easy", :id => 1})
+    word.save()
+    definition = Definition.new({:definition => "without difficulty or effort", :id => @word})
+    definition.save()
+    definition1 = Definition.new({:definition => "free from worries or problems", :id => 2})
+    definition.save()
+    expect(Definition.find_by_word(word.id)).to(eq([song2]))
+  end
 end
 end 
 
