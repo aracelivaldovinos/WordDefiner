@@ -90,7 +90,8 @@ end
 
 describe('#word') do
     it("finds the word a defintion belongs to") do
-    definition = Definition.new({:definition => "without difficulty or effort", :word_id => @word_id, :id => 1})
+      binding.pry
+    definition = Definition.new({:definition => "without difficulty or effort", :word_id =>@@words.values[0].id, :id => 1})
     definition.save()
       expect(definition.word()).to(eq(@word))
     end
