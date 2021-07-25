@@ -1,0 +1,17 @@
+<h1>Change the word: <%= @word.input() %></h1>
+
+<form action="/home/<%= @word.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <input id="name" name="name" type="text">
+
+  <button type="submit">click!</button>
+</form>
+
+<p><a href="/home">Go back to word list</a></p>
+
+<form action="/home/<%= @word.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete word</button>
+</form>

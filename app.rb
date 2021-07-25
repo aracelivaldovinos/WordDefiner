@@ -31,6 +31,25 @@ post('/home') do
   erb(:words)
 end 
 
+get('/home/:id/edit') do
+  @word = Word.find(params[:id].to_i())
+  erb(:edit_word)
+end
+
+patch('/home/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.update(params[:name])
+  @words = Word.all
+  erb(:word)
+end
+
+delete('/home/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.all
+  erb(:words)
+end
+
 
 
 ## definition routhing 

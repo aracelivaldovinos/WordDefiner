@@ -1,6 +1,7 @@
 require 'pry'
 class Word
-  attr_reader :input, :id 
+  attr_reader  :id 
+  attr_accessor :input
   @@inputs = {}
   @@total_inputs = 0 
 
@@ -30,12 +31,12 @@ class Word
     @@inputs[id]
   end 
 
-  def update(word)
-    @word = word 
+  def update(input)
+    @input = input 
   end 
 
   def delete
-    @@words.delete(self.id)
+    @@inputs.delete(self.id)
   end 
 
   def definitions
