@@ -39,7 +39,7 @@ class Word
   end 
 
   def definitions
-    Definition.find_by_board(self.id)
+    Definition.find_by_word(self.id)
   end
 
 end 

@@ -12,3 +12,14 @@ describe('create an word path', {:type => :feature}) do
     expect(page).to have_content('easy')
   end
 end
+
+describe('create a definition path', {:type => :feature}) do
+  it('creates a word and then goes to the word page') do
+    word = Word.new("easy", nil)
+    word.save
+    visit("/home/#{word.id}")
+    fill_in('definition_text', :with => 'without difficulty or effort')
+    click_on('Add!')
+    expect(page).to have_content('without difficulty or effort')
+  end
+end
