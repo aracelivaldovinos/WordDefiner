@@ -1,37 +1,33 @@
 require 'pry'
-
 class Word
-## Still need to remove attr_id
-  attr_reader :id 
-  attr_accessor :word
+  attr_reader :input, :id 
+  @@inputs = {}
+  @@total_inputs = 0 
 
-  @@words = {}
-  @@total_words = 0
-
-  def initialize(attributes)
-    @word = attributes.fetch(:word)
-    @id = attributes.fetch(:id) || @@total_words += 1
+  def initialize (input, id)
+    @input = input
+    @id = id || @@total_inputs += 1
   end 
 
-  def self.all 
-    @@words.values()
-  end 
+  def self.all
+    @@inputs.values()
+  end
 
   def save
-    @@words[:id => @id] = Word.new(:word => @word, :id => @id)
-  end 
+    @@inputs[self.id] = Word.new(self.input, self.id)
+  end
 
   def ==(compare_word)
-    @word
+    self.input() == compare_word.input()
   end 
 
   def self.clear
-    @@words ={}
-    @@total_words = 0
-  end 
+    @@inputs = {}
+    @@total_inputs = 0
+  end
 
   def self.find(id)
-    @@words.fetch(:id => id)  
+    @@inputs[id]
   end 
 
   def update(word)
@@ -39,13 +35,11 @@ class Word
   end 
 
   def delete
-    @@words.delete(@id)
+    @@words.delete(self.id)
   end 
 
   def definitions
-    Definition.find_by_word(self.id)
+    Definition.find_by_board(self.id)
   end
 
-
 end 
-

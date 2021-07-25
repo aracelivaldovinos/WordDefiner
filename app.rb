@@ -20,8 +20,7 @@ get('/home/new') do
 end 
 
 post('/home') do 
-  temp = params[:words_word]
-  word = Word.new(:word => temp, :id => @id)
+  word = Word.new(params[:words_word], nil)
   word.save()
   @words = Word.all
   erb(:words)
