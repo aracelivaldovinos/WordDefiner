@@ -45,18 +45,18 @@ post('/home/:id/definitions') do
   definition.save()
   erb(:word)
 end
-# patch('/albums/:id/songs/:song_id') do@
-#   @album = Album.find(params[:id].to_i())
-#   song = Song.find(params[:song_id].to_i())
-#   song.update(params[:name], @album.id)
-#   redirect to('/albums')
-# end
-# delete('/albums/:id/songs/:song_id') do
-#   song = Song.find(params[:song_id].to_i())
-#   song.delete
-#   @album = Album.find(params[:id].to_i())
-#   redirect to('/albums')
-# end
+patch('/home/:id/definitions/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:definition_id].to_i())
+  definition.update(params[:name], @word.id)
+  erb(:word)
+end
+delete('/home/:id/definitions/:definition_id') do
+  definition = Definition.find(params[:definition_id].to_i())
+  definition.delete
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
 
 
 
