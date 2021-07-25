@@ -77,3 +77,17 @@ describe('deletes definition', {:type => :feature}) do
     expect(page).to have_content('without difficulty or effort')
   end
 end
+
+describe('create an word path', {:type => :feature}) do
+  it('create another word and then goes to the home page') do
+    visit('/home')
+    click_on('Add words!')
+    fill_in('words_word', :with => 'easy')
+    click_on('click')
+    expect(page).to have_content('easy')
+    click_on('Add words!')
+    fill_in('words_word', :with => 'hard')
+    click_on('click')
+    expect(page).to have_content('hard')
+  end
+end
