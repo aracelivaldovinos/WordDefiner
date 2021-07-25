@@ -1,6 +1,6 @@
 # The Word Definer
 
-#### An application for kids for enter and view words
+#### An application for kids for enter words and view definitions of those words
 
 #### By Araceli Valdovinos
 
