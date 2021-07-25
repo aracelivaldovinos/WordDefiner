@@ -91,3 +91,26 @@ describe('create an word path', {:type => :feature}) do
     expect(page).to have_content('hard')
   end
 end
+
+describe('update a word', {:type => :feature}) do
+  it('update a word and then goes to the word page') do
+    word = Word.new("easy", nil)
+    word.save
+    visit("/home/#{word.id}")
+    click_on('Edit word')
+    fill_in('name', :with => 'hard')
+    click_on('click!')
+    expect(page).to have_content('hard')
+  end
+end
+
+describe('delete a word', {:type => :feature}) do
+  it('delete a word and then goes to the word page') do
+    word = Word.new("easy", nil)
+    word.save
+    visit("/home/#{word.id}")
+    click_on('Edit word')
+    click_on('Delete word')
+    expect(page).to have_content('')
+  end
+end
