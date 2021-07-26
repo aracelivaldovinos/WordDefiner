@@ -1,30 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <h3 class ="display-4" style="color:#B97A95">Word: <%= @word.input %></h3>
+    <p>What do you think this word means?</p>
+    <hr>
+      <form action="/home/<%= @word.id %>/definitions" method="post">
+        <div class="form-group">
 
-<h3>Word: <%= @word.input %></h3>
+          <textarea id="definition_text" name="definition_text" type="text"></textarea>
+          <button type="submit">Add!</button>
+        </div>
+      </form>
+    </div>
 
-<h3>Definitions:</h3>
-
-<% if @word.definitions %>
-  
+    <div class="col-sm">
+    <h3 class ="display-4" style="color:#B97A95">Definitions:</h3>
+    <br>
+    <hr>
+    <% if @word.definitions %>
     <ul>
       <% @word.definitions.each do |definition| %>
         
         <li><a href="/home/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.definition %></a></li>
       <% end %>
     </ul>
-  <% else %>
-    <p>There are no definitions listed yet.</p>
-  <% end %>
-
-  <h4>What do you think the word means?:</h4>
-
-<form action="/home/<%= @word.id %>/definitions" method="post">
-  <div class="form-group">
-    <label for="definition_text">Text:</label>
-    <input id="definition_text" name="definition_text" class="form-control" type="text">
+    <% else %>
+      <p>There are no definitions listed yet.</p>
+    <% end %>
+    </div> 
   </div>
-  <button type="submit" class="btn">Add!</button>
-</form>
+</div>
 
-<p><a href="/home/<%= @word.id %>/edit">Edit word</a></p>
-<p><a href="/home">Go back to word list</a></p>
+
+<nav class="navbar fixed-bottom navbar-ligth bg-ligth text-center">
+<p><a href="/home/<%= @word.id %>/edit">Edit word</a> | <a href="/home">Go Back to word list</a></p>
+</nav>
 

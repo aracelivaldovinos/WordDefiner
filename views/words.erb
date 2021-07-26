@@ -1,15 +1,23 @@
-<h1>Lets get wordy! </h1>
+<div class = "text-center"> 
+<h1 class="text-white display-3">Lets get wordy!<h1>
+</div>
+
+<div class="row">
+    <div class="col-sm text-center">
+    <h6 class ="display-4" style="color:#B97A95" >Your Word List:</h6>
 
 <% if @words.any? %>
-  <ul>
     <% @words.each do |word| %>
       <li><a href="/home/<%= word.id %>"><%= word.input %></a></li>
     <% end %>
-  </ul>
 <% else %>
   <p>What words do you want to learn today?</p>
 <% end %>
-
 <a href="/home/new">Add words!</a>
+
+    </div>
+
+
+
 
 

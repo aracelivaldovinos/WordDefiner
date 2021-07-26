@@ -1,19 +1,29 @@
-<h2>Meaning: <%= @definition.definition %></h2>
-<h3>Word: <%= @definition.word.input %></h3>
-
-<form action="/home/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
+<h2 class ="display-4 text-center" style="color:#B97A95">Meaning: <%= @definition.definition %></h2>
+<p class ="text-center">If you want to change the meaning just type a new meaning then submit</p>
+<div class="row">
+    <div class="col-sm-6">
+    <hr>
+    <form action="/home/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
-  <label for="name">change meaning</label>
+ 
   <input id="name" name="name" type="text">
 
   <button type="submit">Update definition</button>
 </form>
+    </div>
+    <div class="col-sm-6">
+    <hr>
+    <form action="/home/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
+<input name="_method" type="hidden" value="delete">
 
-<form action="/home/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
-  <input name="_method" type="hidden" value="delete">
-
-  <button type="submit">Delete definition</button>
+<button type="submit">Delete definition</button>
 </form>
+    </div>
+</div>
 
-<a href="/home/<%= @definition.word.id %>">Back to <%= @definition.word.input %></a>
+
+<nav class="navbar fixed-bottom navbar-ligth bg-ligth text-center">
+<p><a href="/home/<%= @definition.word.id %>">Go Back to "<%= @definition.word.input %>"</a></p>
+</nav>
+
