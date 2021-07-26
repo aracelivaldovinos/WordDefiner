@@ -22,6 +22,8 @@ _An application that contains a Word class. The homepage of the app should list 
 * _Open cloned folder in the editor of your choice_
 * _To run test use `rspec` on the root directory of the cloned project command line_
 * _To run app in browser use `ruby app.rb` on the root directory of the cloned project command line, then enter `http://localhost:4567` in the browser_
+* _Application is deployed to Heroku to view click [The Word Definer](https://warm-ridge-00087.herokuapp.com/home)_
+
 
 ## Known Bugs/Goals
 * _No known bugs_
